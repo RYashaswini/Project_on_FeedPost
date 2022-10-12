@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html'%}
+
+
+
+<!-- Message block -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success text-center" role="alert">
+    {{ message }}</div>
+{% endfor %}
+{% endif %}
+<!-- End message block -->
+
+<div id="content-body-wrapper" class="content-move mb-5">
+    <div class=" container-fluid pt-5  ">
+        <div class="pt-5">
+            <h5 style="color: white;">Hi, {{data.username}}</h5>
+        </div>
+        <div class="container-fluid">
+            <div class="row pt-5">
+                <div class="mt-sm-2 col-lg-12 col-md-12 col-sm-12">
+                    <div class="rounded border bg-light">
+                        <div class="card-body">
+                            <p class="card-title">Approval Page</p>
+                            <div class="card-body pt-4">
+                                <div class="table-responsive">
+                                    <div id="data-table_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table table-bordered text-nowrap mb-0 dataTable no-footer"
+                                                    role="grid" aria-describedby="data-table_info" id="datatrigg">
+                                                    <thead class="border-top">
+                                                        <tr>
+                                                            <th class="bg-transparent  sorting border-bottom odd"
+                                                                style="width: 88.725px; text-align:center; " rowspan="1"
+                                                                colspan="1">
+                                                                S.No</th>
+                                                            <th class="bg-transparent border-bottom odd sorting"
+                                                                tabindex="0" rowspan="1" colspan="1"
+                                                                style="width: 159.825px; text-align:center;">
+                                                                Post Name</th>
+                                                            <th class="bg-transparent border-bottom odd sorting"
+                                                                tabindex="0" rowspan="1" colspan="1"
+                                                                style="width: 121.825px; text-align:center;">
+                                                                Image</th>
+                                                            <th class="bg-transparent border-bottom odd " tabindex="0"
+                                                                rowspan="1" colspan="1"
+                                                                style="width: 89.2px; text-align:center;">
+                                                                Description</th>
+                                                            <th class="bg-transparent border-bottom odd sorting"
+                                                                rowspan="1" colspan="1"
+                                                                style="width: 99.7875px; text-align:center;">
+                                                                User Name</th>
+                                                            <th class="bg-transparent border-bottom odd " rowspan="1"
+                                                                colspan="1"
+                                                                style="width: 139.038px; text-align:center;">
+                                                                Status</th>
+                                                            <th class="bg-transparent border-bottom odd " rowspan="1"
+                                                                colspan="1"
+                                                                style="width: 139.038px; text-align:center;">
+                                                                Status</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for data in response %}
+                                                        <tr class="border-bottom odd">
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{forloop.counter}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="ms-3 mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.post_name}}
+                                                                    </h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-3 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        <img src="{{data.upload_image}}" alt="img"
+                                                                            width="100px" height="70px">
+                                                                    </h6>
+                                                                </div>
+                                                            </td>
+
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.description}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.user_id.username}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <form method="POST"
+                                                                action="{% url 'addstatus' data.post_id %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="hiddenapprove"
+                                                                    id="hiddenapprove" value="appstatus">
+                                                                <td class="text-center">
+                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                        <h6 class="mb-0 fs-14 fw-semibold">
+                                                                            <button type="submit"
+                                                                                class="btn btn-success">Approve</button>
+                                                                        </h6>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                        <h6 class="mb-0 fs-14 fw-semibold">
+                                                                            <button type="button" class="btn btn-danger"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#exampleModal"
+                                                                                onclick="return RejectID('{{data.post_id}}')">Reject</button>
+                                                                        </h6>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
+                                                        </tr>
+                                                        {% endfor %}
+
+                                                        {% for data in statusresponse %}
+                                                        <tr class="border-bottom odd">
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{forloop.counter}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="ms-3 mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.post_name}}
+                                                                    </h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-3 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        <img src="{{data.upload_image}}" alt="img"
+                                                                            width="100px" height="70px">
+                                                                    </h6>
+                                                                </div>
+                                                            </td>
+
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.description}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.user_id.username}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            {% if data.status == "Approved" %}
+                                                            <td class="text-center"
+                                                                style="color:green; font-weight:bold;">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        Approved</h6>
+                                                                </div>
+                                                            </td>
+                                                            {% elif data.status == "Rejected" %}
+                                                            <td class="text-center"
+                                                                style="color:red; font-weight:bold;">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        Rejected</h6>
+                                                                </div>
+                                                            </td>
+                                                            {% else %}
+                                                            <td class="text-center"
+                                                                style="color:blue; font-weight:bold;">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        Pending</h6>
+                                                                </div>
+                                                            </td>
+                                                            {% endif %}
+                                                            {% if data.status == "Approved" %}
+                                                            <td> </td>
+                                                            {% elif data.status == "Rejected" %}
+                                                            <td class="text-center"
+                                                                style="color:red; font-weight:bold;">
+                                                                <div class="mt-0 mt-sm-2 d-block">
+                                                                    <h6 class="mb-0 fs-14 fw-semibold">
+                                                                        {{data.reason}}</h6>
+                                                                </div>
+                                                            </td>
+                                                            {% else %}
+                                                            <td> </td>
+                                                            {% endif %}
+                                                        </tr>
+
+                                                        {% endfor %}
+                                                        <!-- Model for reject -->
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                            role="dialog" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="form-group">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLabel">Reason</h5>
+                                                                            <button type="button" class="close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form id="rejectform" method="POST"
+                                                                                enctype="multipart/form-data">
+                                                                                {% csrf_token %}
+                                                                                <input type="hidden" name="hiddenreject"
+                                                                                    id="hiddenreject" value="rejstatus">
+                                                                                <label for="message-text"
+                                                                                    class="col-form-label">Reason for
+                                                                                    Rejection:</label>
+                                                                                <input type="text" name="txtReason"
+                                                                                    id="txtReason">
+                                                                        </div>
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Submit</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+{% endblock %}

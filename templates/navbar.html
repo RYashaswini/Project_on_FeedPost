@@ -1,0 +1,211 @@
+{% load static %}
+
+<div id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end  " id="sidebar-wrapper">
+        <div class="sidebar-heading">
+            <div class="pt-5"></div>
+        </div>
+        <div class="list-group list-group-flush " >
+
+            <h6 class="pt-5">MAIN</h6>
+            <a class="list-group-item list-group-item-action p-3"  href="{%url 'signin' %}"><i
+                    class="fa fa-home me-3"></i>Login</a>
+            <a class="list-group-item list-group-item-action p-3"  href="{%url 'feedpost' %}"><i
+                    class="fa fa-home me-3"></i>Feed Post</a>
+            <a class="list-group-item list-group-item-action p-3"  href="{%url 'signout' %}"><i
+                    class="fa fa-home me-3"></i>Logout</a>
+
+            <h6 class="pt-4">UI KIT</h6>
+            <a class="list-group-item list-group-item-action  p-3  btn dropdown-toggle dropdown-btn"
+                href="#!"><i class="fa fa-slack me-3"></i>Apps</a>
+
+            <div class="dropdown-container">
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Card Design</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Default Calendar</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Full Calendar</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Counters</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Footers</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Charts</a>
+            </div>
+
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-box me-3"></i>Bootstrap</a>
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-zap me-3"></i><span class="me-4">Landing Page</span> <span
+                    class="badge rounded-pill bg-success px-2">New</span></a>
+
+            <h6 class="pt-4">PRE BUILD PAGES</h6>
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-solid fa-layer-group me-3"></i>Pages</a>
+
+            <a class="list-group-item list-group-item-action  p-3  btn dropdown-toggle dropdown-btn"
+                href="#!"><i class="fa fa-shopping-bag me-3"></i>E - Commerce</a>
+
+            <div class="dropdown-container">
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Shop</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Product Details</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Shopping Cart</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Add Product</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Wishlist</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Checkout</a>
+            </div>
+
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-folder me-3"></i>File Manager</a>
+
+            <h6 class="pt-4">MISC PAGES</h6>
+            <a class="list-group-item list-group-item-action  p-3  btn dropdown-toggle dropdown-btn"
+                href="#!"><i class="fa fa-users me-3"></i>Authentication</a>
+            <div class="dropdown-container">
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Login</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Register</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Forgot Password</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Lock Screen</a>
+                <a class="list-group-item border-0 list-group-item-action " href="#!"><i
+                        class="fa fa-caret-right me-3"></i>Error Pages</a>
+            </div>
+
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-microchip me-3"></i>Submenu items</a>
+
+            <h6 class="pt-4">GENERAL</h6>
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-map-pin me-3"></i>Maps</a>
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-bar-chart me-3"></i><span class="me-5">Charts</span> <span
+                    class="badge rounded-pill bg-primary px-2">6</span></a>
+            <a class="list-group-item list-group-item-action  p-3" href="#!"><i
+                    class="fa fa-wind me-3"></i>Icons</a>
+
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg  fixed-top "  style="background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);">
+            <div class="container-fluid pl-5">
+                <span class="me-5"></span>
+                <img src="{% static 'css/download.jpg' %}" height="25" alt="logo" loading="lazy" class="center-block" />
+                <span class="me-5" style="color:white ;">LOGO</span>
+                <span class="me-5"></span>
+                <span class="me-5"></span>
+                <button class="btn btn-primary me-5" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation"
+                    id="sidebarToggle"><i class="fa fa-align-left fa-lg "></i></button>
+
+                <ul class="ml-5">
+                    <li style="list-style: none; margin-top:1rem">
+                        <form class="input-group w-auto px-5 ">
+                            <input autocomplete="off" type="search" class="form-control rounded"
+                                placeholder='Search for results' style="min-width: 225px;" />
+                            <span class="input-group-text border-0"><i class="fa fa-search"></i></span>
+                        </form>
+                    </li>
+                </ul>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="#!"><i
+                                    class="fa fa-globe fa-lg"></i></a></li>
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="#!"><i
+                                    class="fa fa-sun fa-lg"></i></a></li>
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="#!"><i
+                                    class="fa fa-shopping-cart fa-lg"></i><span
+                                    class="position-absolute top-1 p-1 start-90 translate-middle badge rounded-pill bg-info ">
+                                    7</span></a></li>
+
+                        <li class="nav-item me-3 me-lg-4 dropdown">
+                            <a class="nav-link " id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-bell fa-lg  text_primary  "></i><span
+                                    class="position-absolute top-2 start-90 translate-middle p-1 bg-success border border-light rounded-circle"></span></a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#!">New application
+                                    Received<h6>3 days ago</h6></a>
+                                <a class="dropdown-item" href="#!">Project has been
+                                    approved<h6>2 hours ago</h6></a>
+                                <a class="dropdown-item" href="#!">Your product
+                                    delivered<h6>30 mins ago</h6></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">View all
+                                    notification</a>
+                            </div>
+                        </li>
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="#!"> <i
+                                    class="fa fa-envelope-square fa-lg"></i><span
+                                    class="position-absolute top-2 start-90 translate-middle p-1 bg-danger border border-light rounded-circle"></span></a>
+                        </li>
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="#!"><img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
+                                    class="rounded-circle" height="22" alt="Avatar" /></a></li>
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="#!" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                                    class="fa fa-align-right fa-lg"></i></a></li>
+                        <li class="nav-item me-3 me-lg-4"><a class="nav-link" href="{%url 'signout' %}">
+                               <span style="color:white;">Logout</span></a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-gear fa-spin  text_primary"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#!">View Demo</a>
+                                <a class="dropdown-item" href="#!">Buy Now</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#!">Our
+                                    Portfolio</a>
+                            </div>
+                        </li>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                            aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 id="offcanvasRightLabel">Notifications
+                                </h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body list-group list-group-flush">
+                                <a class="list-group-item list-group-item-action  p-3"
+                                    href="#!"><span class="me-5">New Ordered Registered</span><i
+                                        class="fa fa-gear me-5"></i><i class="fa fa-x"></i></a>
+                                <a class="list-group-item list-group-item-action  p-3"
+                                    href="#!"><span class="me-5">New Ordered Delivered</span><i
+                                        class="fa fa-gear me-5"></i><i class="fa fa-x"></i></a>
+                                <a class="list-group-item list-group-item-action  p-3"
+                                    href="#!"><span class="me-5">New Versions Arrived</span><i
+                                        class="fa fa-gear me-5"></i><i class="fa fa-x"></i></a>
+                                <a class="list-group-item list-group-item-action  p-3"
+                                    href="#!"><span class="me-5">New Project Launched</span><i
+                                        class="fa fa-gear me-5"></i><i class="fa fa-x"></i></a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- Page content-->
+    </div>
+</div>

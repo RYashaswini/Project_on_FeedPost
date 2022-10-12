@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Message block -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success text-center" role="alert">
+    {{ message }}</div>
+{% endfor %}
+{% endif %}
+<!-- End message block -->
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; overflow:hidden; ">
+    <div class="d-flex justify-content-center pt-5 ">
+        <div class="card border-0"  id="cardback">
+            <div class="card-body text-center">
+                <div class="d-flex justify-content-center my-4 ">
+                    <h3 id="form-title" class="fw-bold">LOGIN</h3>
+                </div>
+                <div class="mb-4 "></div>
+                <div class="d-flex justify-content-center  m-4">
+                    <form method="POST" name="formLogin" action="{% url 'signin' %}"
+                        onsubmit="return validateFormLogin()">
+                        {% csrf_token %}
+
+                        <div class="input-group mb-4">
+                            <div class="input-group-append ">
+                                <span class="input-group-text "><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="border-0 rounded-end" name="txtUserName" id="txtUserName"
+                                placeholder="Username...">
+                        </div>
+                        <div class="input-group mb-4">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="border-0 rounded-end" name="txtPwd" id="txtPwd"
+                                placeholder="Password...">
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-3 ">
+                            <input class="btn-primary rounded" type="submit" value="Login">
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center links mb-4">
+                        Don't have an account? <a href="{% url 'register' %}" class="ml-2"
+                            style="text-decoration: none; color:wheat; ">Sign Up</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!-- Message block -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success text-center" role="alert">
+    {{ message }}</div>
+{% endfor %}
+{% endif %}
+<!-- End message block -->
+
+<div class="container-fluid" >
+    <div class="row d-flex justify-content-center borderless align-items-center" style="height:100vh; overflow:hidden; ">
+        <div class="col-md-5 col-xl-4 ">
+            <div class="card border-0" id="cardback">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center borderless my-4">
+                        <h3 id="form-title" class="fw-bold">REGISTER </h3>
+                    </div>
+                    <div class="mb-4"></div>
+                    <div class="d-flex justify-content-center form_container borderless m-5">
+
+                        <form method="POST" name="formRegister" action="{% url 'register' %}"
+                            enctype="multipart/form-data" onsubmit="return validateForm()">
+                            {% csrf_token %}
+                            <div class="input-group mb-4">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="border-0 rounded-end" name="txtUserName" id="txtUserName"
+                                    placeholder="Username...">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+                                </div>
+                                <input type="email" class="border-0 rounded-end" name="txtEmail" id="txtEmail"
+                                    placeholder="Email...">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="border-0 rounded-end" name="txtPwd1" id="txtPwd1"
+                                    placeholder="Password...">
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="border-0 rounded-end" name="txtpwd2" id="txtpwd2"
+                                    placeholder="Confirm Password...">
+                            </div>
+
+                            <div class="d-flex justify-content-center mt-3 login_container ">
+                                <input class="btn btn-primary rounded " type="submit" value="Register Account">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-center links mb-4">
+                            Already have an account? <a href="{% url 'signin' %}" class="ml-2"
+                                style="text-decoration: none; color:wheat;">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

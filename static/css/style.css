@@ -1,0 +1,121 @@
+.fa {
+    color: white;
+}
+
+#imgPreview {
+    max-width: 200px;
+    max-height: 200px;
+    min-height: 100px;
+    min-width: 100px;
+}
+
+
+#cardback{
+    background:linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%) ;
+    font-family: "IBM Plex Sans", sans-serif;
+    color:white; 
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+   
+    /* background:linear-gradient(89.7deg, rgb(0, 0, 0) -10.7%, rgb(53, 92, 125) 88.8%) ; */
+    background:linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+    font-family: "IBM Plex Sans", sans-serif;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+
+}
+
+.footer {
+    padding-bottom: 50px;
+}
+
+#wrapper {
+    background:url('back.jpg') ;
+    
+}
+
+#sidebar-wrapper {
+   
+    min-height: 100vh;
+    transition: margin 0.25s ease-out;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+   
+}
+
+#sidebar-wrapper::-webkit-scrollbar {
+    display: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+    background:linear-gradient(-225deg, #65379B 0%, #886AEA 53%, #6457C6 100%);
+    font-family: "IBM Plex Sans", sans-serif;
+
+
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+}
+
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+.body-content {
+    margin-left: 4rem;
+    transform: translate3d(-3%, 0px, 0px);
+    visibility: visible;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.content-move {
+    margin-left: 17rem;
+}
+
+
+
+.list-group-item{
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+    font-family: "IBM Plex Sans", sans-serif;
+    color:white;  
+} 
+
+.list-group{
+    background:linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+    font-family: "IBM Plex Sans", sans-serif;
+    color:white; 
+} 
+
